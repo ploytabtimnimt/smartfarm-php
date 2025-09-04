@@ -4,7 +4,6 @@ services:
     env: docker
     plan: free
     buildCommand: ""
-    startCommand: "php -S 0.0.0.0:10000 -t ."
     envVars:
       - key: DB_HOST
         value: yamanote.proxy.rlwy.net
