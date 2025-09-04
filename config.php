@@ -1,11 +1,12 @@
 <?php
-// config.php
-// เก็บค่าการเชื่อมต่อฐานข้อมูล (อย่าลืมใส่ไฟล์นี้ลง .gitignore ถ้าใช้ Git)
+$host = getenv("DB_HOST");
+$port = getenv("DB_PORT");
+$user = getenv("DB_USER");
+$pass = getenv("DB_PASSWORD");
+$db   = getenv("DB_NAME");
 
-$config = [
-    "DB_HOST" => "yamanote.proxy.rlwy.net",
-    "DB_PORT" => 59892,
-    "DB_NAME" => "railway",
-    "DB_USER" => "root",
-    "DB_PASS" => "wPXOTFsDdSoaqsapDwpnPEdMqPlzyNWr"
-];
+$conn = new mysqli($host, $user, $pass, $db, $port);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}

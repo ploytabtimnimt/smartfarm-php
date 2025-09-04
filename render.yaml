@@ -7,27 +7,12 @@ services:
     startCommand: "php -S 0.0.0.0:10000 -t ."
     envVars:
       - key: DB_HOST
-        fromService: 
-          name: mysql
-          type: database
-          property: host
+        value: yamanote.proxy.rlwy.net
       - key: DB_PORT
-        fromService:
-          name: mysql
-          type: database
-          property: port
+        value: 59892
       - key: DB_USER
-        fromService:
-          name: mysql
-          type: database
-          property: user
+        value: root
       - key: DB_PASSWORD
-        fromService:
-          name: mysql
-          type: database
-          property: password
+        value: wPXOTFsDdSoaqsapDwpnPEdMqPIzyNWr
       - key: DB_NAME
-        fromService:
-          name: mysql
-          type: database
-          property: database
+        value: railway
