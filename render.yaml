@@ -3,7 +3,7 @@ services:
     name: smartfarm-php
     env: docker
     plan: free
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./dockerfile
     envVars:
       - key: DB_HOST
         value: yamanote.proxy.rlwy.net
