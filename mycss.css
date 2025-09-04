@@ -1,0 +1,4 @@
+.text-indent p:first-child {
+  text-indent: 2em;
+  /* หรือค่าที่คุณต้องการ เช่น 40px */
+}
