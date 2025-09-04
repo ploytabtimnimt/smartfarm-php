@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: smartfarm-php
+    env: docker
+    plan: free
+    buildCommand: ""
+    startCommand: "php -S 0.0.0.0:10000 -t ."
+    envVars:
+      - key: DB_HOST
+        fromService: 
+          name: mysql
+          type: database
+          property: host
+      - key: DB_PORT
+        fromService:
+          name: mysql
+          type: database
+          property: port
+      - key: DB_USER
+        fromService:
+          name: mysql
+          type: database
+          property: user
+      - key: DB_PASSWORD
+        fromService:
+          name: mysql
+          type: database
+          property: password
+      - key: DB_NAME
+        fromService:
+          name: mysql
+          type: database
+          property: database
