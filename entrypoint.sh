@@ -1,11 +1,8 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/bash
+# render จะส่งค่า $PORT เข้ามา ใช้แก้ ports.conf
 
-PORT="${PORT:-10000}"
+if [ -n "$PORT" ]; then
+  echo "Listen $PORT" > /etc/apache2/ports.conf
+fi
 
-# ปรับ Apache ให้ใช้พอร์ตที่ Render กำหนด
-sed -i "s/^Listen .*/Listen ${PORT}/" /etc/apache2/ports.conf || true
-sed -i "s/:80>/:${PORT}>/" /etc/apache2/sites-available/000-default.conf || true
-
-echo "Starting Apache on port ${PORT}"
-exec apache2-foreground
+exec "$@"
